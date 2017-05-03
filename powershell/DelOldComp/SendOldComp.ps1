@@ -1,0 +1,1 @@
+﻿Send-MailMessage -From cg-dc-001@crocusgroup.ru -To CompOld@crocusgroup.ru -Subject  "Computers for deleting from Active Directory" -Body "Computers for deleting from Active Directory" -Attachment "C:\ListOldComp\ListOldComp.txt"  -SmtpServer mail.crocusgroup.ru

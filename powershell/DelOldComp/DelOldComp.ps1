@@ -1,0 +1,5 @@
+get-pssnapin -registered | add-pssnapin -passthru -ErrorAction SilentlyContinue
+Get-Module -ListAvailable| Import-Module -PassThru -ErrorAction SilentlyContinue
+Get-ADComputer -properties lastLogonDate -SearchBase "OU=Ve2,OU=Computers CG,DC=net,DC=crocusgroup,DC=ru" -filter * | where { $_.lastLogonDate -lt (get-date).addmonths(-3) } | out-File -Encoding default c:\ListOldComp\BeforeDel.txt
+Get-adcomputer -properties lastLogonDate -SearchBase "OU=Ve2,OU=Computers CG,DC=net,DC=crocusgroup,DC=ru" -filter * | where { $_.lastLogonDate -lt (get-date).addmonths(-3) } | Remove-ADComputer -Confirm:$false
+Get-ADComputer -properties lastLogonDate -SearchBase "OU=Ve2,OU=Computers CG,DC=net,DC=crocusgroup,DC=ru" -filter * | where { $_.lastLogonDate -lt (get-date).addmonths(-3) } | out-File -Encoding default c:\ListOldComp\AfterDel.txt

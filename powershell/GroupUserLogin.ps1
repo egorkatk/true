@@ -1,0 +1,1 @@
+﻿"1C-zup_kaliningrad", "1C-zup_rostov", "1C-zup_saxalin" | Get-ADGroupMember | ft samaccountname
